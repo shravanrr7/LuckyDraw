@@ -17,8 +17,7 @@ User - New users can regiser, existing users can login with their credentials.
        
 SCREENSHOTS
 
+Lucky draw page
 ![scrLD1](https://user-images.githubusercontent.com/86707340/132125382-18a82397-49a6-4319-bddc-28a07a8e8e2a.JPG)
-![sclDD2](https://user-images.githubusercontent.com/86707340/132125431-e56b6972-5e68-414d-b272-d0573a07dc85.JPG)
-![lDD3](https://user-images.githubusercontent.com/86707340/132125436-a17fde67-2a70-4cf7-aa9c-a48e501de46c.JPG)
 
 
