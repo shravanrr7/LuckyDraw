@@ -11,5 +11,5 @@ User - New users can regiser, existing users can login with their credentials.
        the user number is submitted.
        The winning amount is decided at a probablily of 0.2
        If the user dosent win "a better luck next time is prompted"
-       If the user win an amount a Congragulations message is shown
-       Users have the provision to see their previous winning amounts 
+       If the user win an amount a Congragulations message is shown.
+       Users have the provision to see their previous winning amounts by clicking the button.
