@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<title>Draw</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://www.geeklawblog.com/wp-content/uploads/sites/528/2018/12/liprofile-656x369.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    <img src="https://i.pinimg.com/originals/03/30/9b/03309b29287665306fe3e7d63cc46dfc.jpg" style="width: 120px">
+    <span><a href="{% url 'logout' %}">Logout</a></span>
+
+  </div>
+  <div class="w3-display-middle">
+      <!-- html form -->
+      {% for message in messages %}
+
+      <h1 id="messages">{{message}}</h1>
+    
+      {% endfor %}
+      <h1 style="text-transform:uppercase">Hi {{user}} TEST YOUR LUCK</h1>
+      <br><br>
+      <form action="draw" method="post">
+		{% csrf_token %}
+
+		<input type="submit" value="Generate" class="btn btn-info">
+		</form>
+
+
+        <form action="check" method="post">
+        {% csrf_token %}
+        <input type="text" value="{{mm}}" name="number"><br><br>
+        <table>
+          <!-- <tr>
+            <td>Amount won is </td>
+          </tr> -->
+            {% for i in price %}
+            <tr>
+              <td>Amount won is </td>
+            </tr>
+            <tr>
+               <td>
+                {{i.price}}
+               </td> 
+
+            </tr>
+            {% endfor %}
+        </table>
+		<input type="submit" value="check status" class="btn btn-info">
+        </form><br><br><br>
+
+        <form action="show" method="get">
+          {% csrf_token %}
+          <table>
+            <tr>
+              <td>Click the below button to check your prvious winning amounts: </td>
+            </tr>
+              {% for i in mem %}
+              <tr>
+                 <td>
+                  <h6>{{i.amount}} won on {{i.dat}} at {{i.tim}}</h6>
+                 </td> 
+  
+              </tr>
+              {% endfor %}
+          </table>
+      <input type="submit" value="Click here" class="btn btn-info">
+          </form><br>
+
+</div>
+     
+  <!-- {% for message in messages %}
+
+  <h1 id="messages">{{message}}</h1>
+
+  {% endfor %} -->
+
+</body>
+</html>

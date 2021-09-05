@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<title>Addprice</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://www.geeklawblog.com/wp-content/uploads/sites/528/2018/12/liprofile-656x369.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["number"].value;
+  if(x.length<7) {
+    alert("Entered number must is less than seven digits");
+    return false;
+  }
+  if(x.length>7) {
+    alert("Entered number is greater than seven digits");
+    return false;
+  }
+}
+</script>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    <span><a href="{% url 'logout' %}">Logout</a></span>
+    <span> Hello , {{request.user}}</span>
+    <!-- <span><a href="{% url 'logout' %}">Logout</a></span> -->
+
+  </div>
+  <div class="w3-display-middle">
+      <!-- html form -->
+      <form name="myForm" action="add" method='post' onsubmit="return validateForm()">
+        {% csrf_token %}
+        <label for="number">Number:</label><br>
+        <input type="text" id="number" name="number"><br>
+        <label for="price">Price:</label><br>
+        <input type="text" id="price" name="price" value="None">
+        <input type="submit" value="Submit">
+        <h5>{{responseDic}}</h5> 
+         <!-- to generate random numbers -->
+      </form>
+
+    <!-- <h1 class="w3-jumbo w3-animate-top">COMING SOON</h1> -->
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+  </div>
+
+</div>
+
+</body>
+</html>
