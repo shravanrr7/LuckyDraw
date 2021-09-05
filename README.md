@@ -1,5 +1,6 @@
 # LuckyDraw
 A lucky draw application in Django framework
+
 Database used - MySql
 
 
